@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <title>aFrame Starter Template - DAT515</title>
+</head>
+
+<body>
+    <a-scene>
+    <a-assets>
+        // standalone textures:
+        <img id="grass" src="assets/textures/Grass1.jpg"/>
+       
+        // 3D models:
+        // free 3D model from bariacg at turbosquid.com. Available at: https://www.turbosquid.com/3d-models/chicky-mascot-model-1159210
+        <a-asset-item id="chickObj" src="assets/3DModels/Chick/Chicky.obj" ></a-asset-item>
+        <a-asset-item id="chickMtl" src="assets/3DModels/Chick/Chicky.mtl" ></a-asset-item>
+        // free 3D model from bariacg at turbosquid.com. Available at: https://www.turbosquid.com/3d-models/3d-dog-cartoon-1213132
+        <a-asset-item id="dogObj" src="assets/3DModels/Dog/Dog_obj/Dog.obj" ></a-asset-item>
+        <a-asset-item id="dogMtl" src="assets/3DModels/Dog/Dog_obj/Dog.mtl" ></a-asset-item>
+        // free 3D model from Mount 3D at turbosquid.com. Available at: https://www.turbosquid.com/3d-models/tree-pixel-low-poly-3d-model-1764347  
+        <a-asset-item id="tree1Obj" src="assets/3DModels/Tree1/tree1.obj" ></a-asset-item>
+        <a-asset-item id="tree1Mtl" src="assets/3DModels/Tree1/tree1.mtl" ></a-asset-item>
+      
+    </a-assets>
+    <!-- <a-entity cursor="rayOrigin:mouse"></a-entity> -->
+    <a-camera >
+        <a-cursor geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"; material="color: #EE4266; shader: flat"></a-cursor>
+    </a-camera>
+    
+        <a-sky color="#DAF1FF"></a-sky>
+        <a-plane color="#fff";  shader: flat; src="#grass"  position="0 1 0" rotation="-90 0 0" repeat="70 70" scale="100  100 1"></a-plane>
+      
+        
+        // plants:
+        <a-text id="treeText" value="Juniper tree" align="center" color="#FFF" visible="false" position="9 9 -20"
+        geometry="primitive: plane; width: 1.75" material="color: #333"></a-text>
+        <a-entity obj-model="obj: #tree1Obj; mtl: #tree1Mtl" position="10 0 -20" rotation="0 -270 0"  scale="0.5 0.5 0.5" event-set__enter="_event: mouseenter; _target: #treeText; visible: true"
+        event-set__leave="_event: mouseleave; _target: #treeText; visible: false"></a-entity>
+       
+        // animals:
+        <a-entity obj-model="obj: #dogObj; mtl: #dogMtl" position="6.268 1 -16" rotation="0 -65 0"  scale="0.009  0.009   0.009" animation="startEvents: mouseenter; property: object3D.position.y;
+        to: 1.25;  dir: alternate; dur: 200;  loop:true ;" ></a-entity>
+        <a-entity obj-model="obj: #chickObj; mtl: #chickMtl" position="-5.268 1 -6" rotation="0 30 0"  scale="0.008  0.008   0.008" rotation="0 0 0" animation="startEvents: mouseenter; property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
+
+
+    </a-scene>
+    
+    <!-- <script src="js/script.js"></script> event-set__makevisible="_event: mouseenter; visible: true"animation="startEvents: click; property: position;
+          from: -1 1.5 -3; to: -1 0.5 -3 dur: 1000"-->
+</body>
+
+</html>
