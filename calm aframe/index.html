@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <title>aFrame Starter Template - DAT515</title>
     <title>aFrame Starter Template - DAT515</title>
 </head>
 
 <body>
     <a-scene>
     <a-assets>
-        // standalone textures:
+        // standalone textures - jpg from turbosquid.com. Available at: https://www.turbosquid.com/3d-models/prototyping-2012-3d/702544:
         <img id="grass" src="assets/textures/Grass1.jpg"/>
        
         // 3D models:
@@ -29,10 +31,11 @@
         <a-asset-item id="tree1Mtl" src="assets/3DModels/Tree1/tree1.mtl" ></a-asset-item>
       
     </a-assets>
-    <!-- <a-entity cursor="rayOrigin:mouse"></a-entity> -->
-    <a-camera >
-        <a-cursor geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"; material="color: #EE4266; shader: flat"></a-cursor>
-    </a-camera>
+  
+    <a-entity movement-controls="speed: 0.15" position="0 0 6">
+        <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
+        <a-cursor geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.06"; material="color: #EE4266; shader: flat"></a-cursor>
+        </a-entity>
     
         <a-sky color="#DAF1FF"></a-sky>
         <a-plane color="#fff";  shader: flat; src="#grass"  position="0 1 0" rotation="-90 0 0" repeat="70 70" scale="100  100 1"></a-plane>
@@ -52,8 +55,6 @@
 
     </a-scene>
     
-    <!-- <script src="js/script.js"></script> event-set__makevisible="_event: mouseenter; visible: true"animation="startEvents: click; property: position;
-          from: -1 1.5 -3; to: -1 0.5 -3 dur: 1000"-->
 </body>
 
 </html>
