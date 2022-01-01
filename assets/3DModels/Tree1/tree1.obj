@@ -1,5 +1,5 @@
 # 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
-# File Created: 19.12.2021 21:08:49
+# File Created: 29.12.2021 14:33:13
 
 mtllib tree1.mtl
 
@@ -3877,7 +3877,7 @@ vt 0.9212 0.5226 0.0000
 
 o crown
 g crown
-usemtl 03___Default
+usemtl Wall_Paint
 s 1
 f 77/196/141 78/197/142 79/198/143 
 f 80/199/144 81/200/144 82/201/145 
